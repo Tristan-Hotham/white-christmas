@@ -1,0 +1,124 @@
+<!-- wp:paragraph -->
+<p><em>Every December the same question comes round: will it snow on Christmas Day? I went back through every Christmas Day from {{sample.first}} to {{sample.last}} in {{sample.towns|int}} towns across the UK to work out the odds where you live. The short answer: lower than the cards suggest, very different from town to town, and decided by a handful of years.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/white-christmas/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.24132735">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>Ask the Met Office whether a Christmas was white and you get a famously generous answer. For the bookmakers, a single snowflake seen falling on 25 December at one of its stations is enough. By that rule a white Christmas somewhere in the country is fairly common. But it is not what most of us picture. We picture snow on the ground.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Weather stations are patchy, so I used weather reanalysis instead: ERA5 and ERA5-Land, the European reconstructions of the weather everywhere on Earth, hour by hour, built by blending a weather model with millions of observations. Through the free Open-Meteo service I pulled Christmas Day for {{sample.towns|int}} towns, from big cities to Lerwick, Stornoway and Bournemouth, and sorted each one into snow falling, snow lying (more than 1 cm on the ground), both, or neither.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">About one Christmas in {{overall.lie.one_in|int}}</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Across all the towns, snow lay on the ground on {{overall.lie.pc|f1}}% of Christmas Days since 1950, about one in {{overall.lie.one_in|int}}. Snow fell on {{overall.fall.pc|f1}}% of them since 1940. The picture postcard, snow falling onto snow that is already lying, came along on just {{overall.both.pc|f1}}%, about one Christmas in {{overall.both.one_in|int}}.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Where you live matters enormously. In 76 years of data, snow never lay on Christmas Day in Bournemouth. It lay just once in {{n_towns_lie_once|int}} more towns, all in southern and eastern England, Devon and Cornwall, and all on or near the coast. London managed {{towns.London.lie_k|int}} snowy Christmases, Birmingham {{towns.Birmingham.lie_k|int}}, Manchester {{towns.Manchester.lie_k|int}}, Edinburgh {{towns.Edinburgh.lie_k|int}} and Glasgow {{towns.Glasgow.lie_k|int}}.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_map.png|Map of the UK with 116 town dots coloured from pale to deep blue by how often there was snow on the ground on Christmas Day: deepest in the Scottish Highlands, palest along the south coast of England|How often there was snow lying on Christmas Day, 1950 to {{sample.last}}, in each of the {{sample.towns|int}} towns.}}
+
+<!-- wp:paragraph -->
+<p>Two things do most of the work: height and latitude. Every 100 m of height multiplies the odds of snow on the ground by about {{M2_lie.elev100.OR|f1}}, and every degree further north by about {{M2_lie.lat.OR|f1}}. Buxton, at {{towns.Buxton.elev|int}} m the highest town I looked at, had a snowy Christmas {{towns.Buxton.lie_k|int}} times. Scotland as a whole had snow lying on {{nation.Scotland.lie|f0}}% of town Christmases, England on {{nation.England.lie|f0}}%.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The top of the list comes with a warning. Aviemore ({{towns.Aviemore.lie_pc|f0}}%) and Fort William ({{towns.Fort William.lie_pc|f0}}%) look like near certainties, but the reanalysis works in squares about 9 to 11 km across, and theirs take in the slopes of the Cairngorms and the Nevis range. The model is also known to put too much snow on mountains. Those numbers describe the hills around the towns as much as the high street.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_geo.png|Two scatter charts of towns: the share of Christmases with snow lying rises with the town's height and with latitude, with Aviemore and Fort William far above the rest|Each dot is a town: how often there was snow lying on Christmas Day, against its height and how far north it is.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">A few big years</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The most striking thing in the data is how lumpy it is. White Christmases do not trickle along at one in {{overall.lie.one_in|int}} in each town. They arrive all at once, in a few years when snow covers most of the country, with long gaps between. In 2010 snow lay in {{annual.y2010.n_lie|int}} of the {{sample.towns|int}} towns. In 1981 it lay in {{annual.y1981.n_lie|int}}, even though hardly any fell on the day itself: it had fallen before Christmas and was still there. In 2024 and 2025, it lay in none.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_strip.png|A grid with one row for each of the 116 towns and one square per year from 1940 to 2025: mostly pale, with vertical blue stripes in a few years such as 1950, 1981, 2009 and 2010 when snow lay almost everywhere|Every Christmas Day since 1940 in every town, north at the top. Dark: snow fell and lay; mid blue: lying; pale blue: snow fell but did not settle.}}
+
+<!-- wp:paragraph -->
+<p>Does a reconstruction get this right? The Met Office lists four Christmases since 1960 when more than 40% of its stations had snow on the ground at 9 in the morning: 1981, 1995, 2009 and 2010. In the reanalysis those four come first, second, third and fifth out of all 66 Christmases since 1960. The chance of that happening by luck is about {{V1.per_million|f0}} in a million. I was relieved.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>White Christmases do not trickle along. They arrive all at once, in a few years when snow covers most of the country.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Getting rarer?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Probably, but it is closer than you might think. Split the years since 1950 in half and snow lay on {{halves.lie.first|f1}}% of town Christmases from 1950 to 1987, against {{halves.lie.second|f1}}% from 1988 to {{sample.last}}. Christmases with no lying snow in any of the towns went from {{annual.lie_zero_first_half|int}} of 38 to {{annual.lie_zero_second_half|int}} of 38, and a standard trend test on the yearly share of towns with snow lying finds a decline unlikely to be chance. The last Christmas with snow lying in at least one town in ten was {{annual.last_lie_ge10|raw}}. Christmas Day itself has warmed by about {{TEMP_1950.b|f1}}°C a decade since 1950.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_annual.png|Bar charts of the share of towns with snow lying and falling on each Christmas Day since 1940, tall in 1950, 1956, 1968, 1981, 2009 and 2010 and almost empty since, above a rising line of Christmas Day temperature|Each Christmas: the share of towns with snow lying (top) and falling (middle), and the average top temperature on the day (bottom).}}
+
+<!-- wp:paragraph -->
+<p>But I wrote down my main test before looking at the results, and it does not find a decline it can tell apart from chance. The reason is 2009 and 2010: two of the three snowiest Christmases in 66 years came recently, and they balance out a lot of green ones. Leave just those two years out and the decline is clear. Leave them in and it is not. So the honest answer is that white Christmases have probably become rarer, as you would expect when the day is getting warmer, but a run of lucky years can still turn up.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_robust.png|Chart of trend estimates under every planned check: nearly all show white Christmases becoming rarer, but most have uncertainty ranges that include no change|Every check I planned: below 1 means white Christmases getting rarer. Red marks the only checks where the change is clear.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>For each town and each year I took the snowfall, the depth of snow on the ground and the top temperature on 24, 25 and 26 December from the Open-Meteo Historical Weather API, which serves ERA5 (from 1940) and ERA5-Land (from 1950). Snow depth only exists from 1950, so lying snow starts there. "Falling" means any snowfall at all in the reanalysis square; "lying" means more than 1 cm on the ground at some point on Christmas Day. The trend model compares each town with itself over time and treats each Christmas as one piece of evidence, since every town shares the same weather that day.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>There are limits. A reanalysis is a model guided by observations, not a weather station at the end of your road, and it cannot see the single flake that counts for the bookmakers. It averages over squares several miles across and overdoes snow on hills. The 1940s were less well observed than later decades, and from 2017 the service may switch to a different model for snowfall and temperature. I checked what difference that makes in the paper. And one day a year is a small sample to spot a trend in.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/white-christmas/">Find your town on the map</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.24132735">Read the paper</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/white-christmas">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Open-Meteo Historical Weather API (Zippenfenig 2023), CC BY 4.0, retrieved 2026. Contains modified Copernicus Climate Change Service information: ERA5 (Hersbach et al. 2020, Quarterly Journal of the Royal Meteorological Society) and ERA5-Land (Muñoz-Sabater et al. 2021, Earth System Science Data).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Met Office, "Will it be a white Christmas?" (2024), for the snowflake definition and the four widespread snowy Christmases since 1960.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Further reading: A. L. Kay, "A review of snow in Britain" (Progress in Physical Geography, 2016); I. Brown, "Snow cover variability in Great Britain during a changing climate" (Weather, 2020).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Base map: OpenFreeMap, OpenStreetMap contributors (ODbL). Boundaries: ONS (Open Government Licence v3.0) and Natural Earth.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

@@ -1,0 +1,13 @@
+# Cover note: What are the odds of a white Christmas?
+
+## Suitable journals (checked 2026)
+
+None of these charges authors to publish; open access is optional and paid where offered. Word limits could not all be confirmed from this workspace (several author pages were blocked); recheck before submitting.
+
+1. **Weather** (Royal Meteorological Society, Wiley). Named in the brief and the natural home: it publishes accessible, well-illustrated articles for a broad readership, including Brown (2020) on snow cover in Great Britain, cited here. The RMetS journal page states that articles are published free of charge unless the author chooses open access. Its length limit could not be confirmed; Weather articles are typically much shorter than this paper (about 7,887 words including tables and captions), so a condensed version (odds, map, validation, trend in brief) would be needed.
+2. **International Journal of Climatology** (Royal Meteorological Society, Wiley). Named in the brief; a hybrid subscription journal (MPDL open access listing: "hybrid OA"), so no charge for the subscription route. It published Brown (2019) and the annual State of the UK Climate reports. Its word limit could not be confirmed. The validation of ERA5-Land snow against the Met Office record and the trend analysis suit it best.
+3. **Climatologie** (Association Internationale de Climatologie, EDP Sciences). Accepts English; research papers are capped at 40,000 characters including spaces (about 6,000 words), so the paper would need shortening. Its fee page could not be read; check that it is free to authors before submitting.
+
+## Summary of the contribution (for a cover letter)
+
+The odds of a white Christmas are a perennial public question, but published figures are national counts of stations. Using ERA5 and ERA5-Land reanalysis, this paper classifies every Christmas Day from 1940 to 2025 in 116 UK towns as having snow falling, lying or both, giving the first town-by-town odds across the four nations. Snow lay on 8.8% of town Christmases since 1950, rising strongly with height and latitude, from never in Bournemouth to most years in Highland towns whose reanalysis cells include hills. The reanalysis reproduces the Met Office record: its four widespread lying-snow Christmases since 1960 rank 1, 2, 3 and 5 of 66 years. In trend tests specified in a written plan, the main logistic model finds no clear decline (odds ratio per decade 0.89, 95% CI 0.68 to 1.16), while a rank test on the national series does; the result turns on 2009 and 2010. Christmas Day has warmed by 0.49 C a decade since 1950. Data and code are openly released.

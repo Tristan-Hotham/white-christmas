@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>What are the odds of a white Christmas where you live? | 116 UK towns, 1940 to 2025</title>
+<meta name="description" content="Every Christmas Day from 1940 to 2025 in 116 UK towns, from weather reanalysis: how often snow fell, how often it lay, and whether a white Christmas is getting rarer.">
+<meta property="og:title" content="What are the odds of a white Christmas where you live?">
+<meta property="og:description" content="Snow lay on about 1 Christmas Day in 11 across 116 UK towns since 1950. In Bournemouth: never.">
+<meta property="og:image" content="https://maps.tristanhotham.com/white-christmas/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/white-christmas/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+:root{--bg:#F6EED8;--panel:#EFE3C4;--fg:#2B2119;--muted:#6E604E;--rule:#E2D3AE;--card:#FBF5E4;--border:#D3C29A;--hot:#1D4F86;--cool:#2F6A9E;
+  --display:"Fraunces",Georgia,serif;--body:"Source Serif 4",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1A1612;--panel:#241E18;--fg:#EFE6D4;--muted:#ADA08B;--rule:#3A3128;--card:#211B15;--border:#4D4234;--hot:#8FB4DA;--cool:#8FB4DA;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1A1612;--panel:#241E18;--fg:#EFE6D4;--muted:#ADA08B;--rule:#3A3128;--card:#211B15;--border:#4D4234;--hot:#8FB4DA;--cool:#8FB4DA;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:720px;margin:0 auto;padding-block:28px 64px}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+p{margin:0 0 16px}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+ul.plain{padding-left:20px} ul.plain li{margin:4px 0}
+details{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;margin:18px 0;font-size:16px}
+summary{font:500 13px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:4px 8px;cursor:pointer;min-height:28px}
+.figure{margin:22px 0}.figure img{width:100%;display:block;border:1px solid var(--border);background:#F6EED8}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:22px 0}
+.stat b{display:block;font:900 40px/1 var(--display);color:var(--hot)}
+.stat span{font:400 13px/1.35 var(--mono);color:var(--muted)}
+table.t{width:100%;border-collapse:collapse;font:400 13.5px/1.4 var(--mono);margin:12px 0 4px}
+table.t th{text-align:left;font-weight:500;border-bottom:2px solid var(--fg);padding:5px 6px 5px 0}
+table.t td{border-bottom:1px solid var(--rule);padding:5px 6px 5px 0;vertical-align:top}
+table.t td.r,table.t th.r{text-align:right}
+.tscroll{overflow-x:auto}
+.topbar{height:40px;display:flex;align-items:center;gap:14px;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:0 max(14px,env(safe-area-inset-left,0px));border-bottom:3px double var(--fg);background:var(--bg);overflow:hidden;white-space:nowrap}
+.tb-name{font:800 18px/1 var(--display);color:var(--hot);text-decoration:none}
+.tb-k{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tb-links{margin-left:auto;display:flex;gap:16px;align-items:center;font:500 12px/1 var(--mono)}
+.tb-links a{text-decoration:none}
+.mapband{width:100vw;margin-left:calc(50% - 50vw)}
+.pane{position:relative;height:calc(100vh - 43px);height:calc(100svh - 43px);min-height:480px;border-bottom:1px solid #BCA676;background:#EEF1F2;overflow:hidden}
+#map{position:absolute;inset:0}
+.cartouche{position:absolute;left:14px;top:14px;z-index:5;max-width:min(340px,calc(100% - 28px));background:rgba(251,243,220,.96);color:#2B2119;border:2px solid #2B2119;padding:10px 14px;box-shadow:0 3px 14px rgba(60,40,10,.22)}
+.cartouche h1{font:900 clamp(22px,2.3vw,30px)/1 var(--display);letter-spacing:-.015em;margin:6px 0 0;color:#2B2119}
+.cartouche h1 .a{color:#1D4F86}
+.cartouche .dek{font-size:13.5px;line-height:1.36;margin:6px 0 0}
+.cartouche .byline{font-size:11px;color:#6E604E;margin-top:6px}.cartouche .kicker{color:#6E604E}
+.ct-fold{position:absolute;right:6px;top:5px;width:26px;height:26px;border:0;background:none;color:#1D4F86;font:700 16px/1 var(--mono);cursor:pointer;padding:0}
+.ct-toggle{display:none;font:800 16px/1 var(--display);color:#1D4F86;background:none;border:0;padding:2px 0;cursor:pointer;min-height:30px}
+.cartouche.folded .ct-body,.cartouche.folded .ct-fold{display:none}.cartouche.folded .ct-toggle{display:block}.cartouche.folded{padding:4px 11px}
+.ov-top{position:absolute;z-index:6;right:54px;top:10px;max-width:calc(100% - 480px);display:flex;flex-direction:column;gap:6px;align-items:flex-end;pointer-events:none;font:400 13px/1.3 var(--mono);color:#2B2119}
+.ov-top>*{pointer-events:auto}
+.srch{position:relative;width:min(340px,100%)}
+.srch input{width:100%;font:400 15px/1 var(--mono);background:rgba(251,245,228,.97);color:#2B2119;border:1px solid #9C8656;border-radius:3px;padding:9px 10px;min-height:40px}
+.sug{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:#FBF5E4;border:1px solid #9C8656;max-height:300px;overflow:auto;display:none;z-index:12}
+.sug li{padding:8px 10px;cursor:pointer;border-bottom:1px solid #E7D9B6}.sug li span{color:#7A6A52;font-size:12px}
+.sug li[aria-selected="true"],.sug li:hover{background:#EFE1BC}
+.chips{display:flex;gap:6px;overflow-x:auto;max-width:100%;scrollbar-width:none;padding-bottom:2px}.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font:500 12px/1 var(--mono);background:rgba(251,245,228,.95);color:#2B2119;border:1px solid #9C8656;border-radius:999px;padding:8px 11px;cursor:pointer;min-height:34px;white-space:nowrap}
+.chip[aria-pressed="true"]{background:#1D4F86;color:#fff;border-color:#2B2119}
+.chip.lyr{background:#2B2119;color:#F6EED8;border-color:#2B2119}
+.lp{position:absolute;right:54px;top:60px;z-index:9;background:rgba(251,245,228,.98);border:1px solid #9C8656;border-radius:4px;padding:10px 12px 8px;font:400 13px/1.3 var(--mono);color:#2B2119;box-shadow:0 3px 12px rgba(60,40,10,.25);display:none;min-width:250px}
+.lp.open{display:block}.lp h4{margin:0 0 6px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#7A6A52}
+.lp label{display:flex;gap:8px;align-items:center;padding:5px 0;cursor:pointer;min-height:30px}.lp input{accent-color:#1D4F86;width:16px;height:16px;flex:none}
+.keys{position:absolute;left:12px;bottom:12px;z-index:4;background:rgba(251,243,220,.96);border:1px solid #9C8656;border-radius:3px;padding:8px 10px;font:400 11.5px/1.25 var(--mono);color:#2B2119;max-width:270px}
+.keys b{display:block;font:800 14px/1.1 var(--display);margin-bottom:5px}
+.keys .bar{height:10px;border:1px solid rgba(43,33,25,.4)}
+.keys .ends{display:flex;justify-content:space-between;font-size:10.5px;color:#6E604E;margin-top:2px}
+.keys .row{display:flex;align-items:center;gap:6px;margin-top:5px}.keys .dot{width:10px;height:10px;border-radius:50%;background:#B9B4AA;border:1px solid #fff;box-shadow:0 0 0 1px #888}
+.maplibregl-popup-content{background:#FBF5E4;color:#2B2119;font:400 13px/1.45 var(--mono);border:1px solid #9C8656;border-radius:4px;padding:10px 12px;max-width:320px;max-height:44vh;overflow:auto}
+.maplibregl-popup-content b.t{display:block;font:800 19px/1.15 var(--display);color:#1D4F86;margin-bottom:3px;padding-right:14px}
+.maplibregl-popup-content table{border-collapse:collapse;margin:5px 0}.maplibregl-popup-content td{padding:1px 8px 1px 0;vertical-align:top}
+.maplibregl-popup-content td:first-child{color:#7A6A52}.maplibregl-popup-content .nt{color:#7A6A52;font-size:11.5px;margin:5px 0 0}
+.maplibregl-popup-content a{color:#1D4F86}
+.maplibregl-ctrl-attrib{font:400 11px/1.3 var(--mono)!important}
+.nojs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 14px var(--mono);color:#6E604E;padding:20px;text-align:center}
+@media (max-width:1000px){.ov-top{left:10px;right:54px;max-width:none;align-items:flex-start}.lp{left:10px;right:auto;top:100px}.cartouche{top:100px}}
+@media (max-width:600px){.tb-k,.tb-links a.x{display:none}.topbar{gap:10px}.tb-name{font-size:15px}.tb-links{gap:10px}
+  .lp{left:8px;right:8px;min-width:0}.ov-top{left:8px;top:8px}.cartouche{left:8px;top:100px;max-width:calc(100% - 16px)}.cartouche h1{font-size:23px}
+  .ct-toggle{display:block}.ct-fold{display:none}.keys{max-width:200px;font-size:10.5px;padding:6px 8px}.chip{padding:8px 8px;font-size:11.5px}.keys .kx{display:none}.chips{flex-wrap:wrap}.cartouche{top:150px}}
+.maplibregl-popup{z-index:7}
+.tl{position:absolute;left:12px;right:60px;bottom:12px;z-index:5;display:flex;align-items:center;gap:10px;background:rgba(251,243,220,.96);border:1px solid #9C8656;border-radius:3px;padding:6px 10px;font:400 12px/1.2 var(--mono);color:#2B2119;max-width:560px}
+.tl input[type=range]{flex:1;accent-color:#1D4F86;min-width:80px}
+.tl b{font:800 15px/1 var(--display);min-width:92px;text-align:center}
+.tl button{font:500 12px/1 var(--mono);background:#2B2119;color:#F6EED8;border:0;border-radius:3px;padding:7px 9px;cursor:pointer;min-height:30px}
+.keys{bottom:64px}
+.spark{display:block;margin:6px 0 2px}
+.maplibregl-popup-content .pl{border-top:1px solid #E2D3AE;margin-top:6px;padding-top:6px}
+@media (max-width:600px){.tl{left:8px;right:52px;bottom:8px;gap:6px;padding:5px 7px}.tl b{min-width:70px;font-size:13px}.keys{bottom:56px}}
+
+.strip{display:block;margin:6px 0 2px}
+.keys .bar{height:10px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.maplibregl-popup-content .big{font:800 26px/1 var(--display);color:#1D4F86}
+.tl label{white-space:nowrap}
+
+</style></head>
+<body>
+<div class="topbar">
+  <a class="tb-name" href="#mapWrap">White Christmas odds</a>
+  <span class="tb-k">Data study · 2026</span>
+  <nav class="tb-links"><a href="#essay">About</a><button class="theme" id="theme" aria-label="Toggle dark mode">◐</button><a href="https://doi.org/10.5281/zenodo.24132735">Paper</a><a class="x" href="https://github.com/Tristan-Hotham/white-christmas">Data and code</a></nav>
+</div>
+<div class="mapband">
+  <div class="pane" id="mapWrap" data-fullscreen-map role="application" aria-label="Map of 116 UK towns coloured by how often there was snow on Christmas Day">
+    <div id="map"></div>
+    <div class="nojs" id="nojs">Loading the map. It needs JavaScript and WebGL.</div>
+    <div class="cartouche" id="cartouche">
+      <button class="ct-toggle" id="ctToggle" aria-expanded="true">White Christmas odds ▾</button>
+      <button class="ct-fold" id="ctFold" title="Fold the title" aria-label="Fold the title">▴</button>
+      <div class="ct-body">
+        <div class="kicker"><b>Data study</b><span>2026</span></div>
+        <h1>What are the odds of a <span class="a">white Christmas</span> where you live?</h1>
+        <p class="dek">Every Christmas Day from 1940 to 2025 in 116 UK towns, from weather reanalysis. Colour shows how often snow lay on the ground (or fell). Pick a decade; tap a town for its Christmas calendar.</p>
+        <div class="byline">Dr Tristan Hotham · Independent researcher · 2026</div>
+      </div>
+    </div>
+    <div class="ov-top">
+      <div class="srch"><input type="search" id="q" placeholder="Find a town" aria-label="Find a town" autocomplete="off"><ul class="sug" id="sug" role="listbox"></ul></div>
+      <div class="chips"><button class="chip" data-m="l" aria-pressed="true">Snow lying</button><button class="chip" data-m="f" aria-pressed="false">Snow falling</button><button class="chip" data-m="b" aria-pressed="false">Both</button><button class="chip lyr" id="lyrBtn" aria-expanded="false" aria-controls="lp">Layers</button></div>
+    </div>
+    <div class="lp" id="lp" role="dialog" aria-label="Map layers">
+      <h4>Layers</h4>
+      <label><input type="checkbox" id="lyP" checked> The 116 towns (coloured)</label>
+      <label><input type="checkbox" id="lyZ" checked> Towns with none in the period (rings)</label>
+      <label><input type="checkbox" id="lyL" checked> Town names and odds</label>
+      <label><input type="checkbox" id="lyB" checked> Base map labels</label>
+    </div>
+    <div class="keys" id="keys"><b id="keyTitle">Christmas Days with snow lying</b><div class="bar" id="keyBar"></div><div class="ends" id="keyEnds"><span>0%</span><span>15%</span><span>30%+</span></div>
+      <div class="row kx"><span class="dot" style="background:#fff;border:1.5px solid #6E7F90;box-shadow:none"></span>none in the period</div><div class="row kx" style="color:#5E6B78">Only these 116 towns are mapped. Each value is for the reanalysis cell (about 9 to 11 km) around the town.</div></div>
+    <div class="tl" id="tl"><label for="dec" style="font-weight:500">Period</label><input type="range" id="dec" min="0" max="9" value="0" step="1" aria-label="Choose a decade"><b id="decLab">All years</b></div>
+  </div>
+</div>
+<div class="wrap" id="essay">
+<p style="margin-top:6px">Will it snow on Christmas Day? I took every Christmas Day from 1940 to 2025 in 116 towns across the UK, from the ERA5 and ERA5-Land weather reanalyses, and asked three questions of each: did snow fall, was there snow lying on the ground (more than 1 cm), or both? Across all the towns, snow lay on 8.8% of Christmas Days since 1950, about 1 in 11, and fell on 8.8% since 1940.</p>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Open-Meteo Historical Weather API (ERA5 and ERA5-Land reanalysis, Copernicus Climate Change Service), CC BY 4.0 · Base map: OpenFreeMap Positron</div>
+<div class="stats">
+<div class="stat"><b>1 in 11</b><span>Christmas Days with snow lying, across 116 towns, 1950 to 2025</span></div>
+<div class="stat"><b>5 of 76</b><span>Christmases with snow lying in London; Bournemouth: none</span></div>
+<div class="stat"><b>2010</b><span>the last Christmas with snow lying in at least 10% of the towns</span></div>
+<div class="stat"><b>+0.5°C</b><span>a decade: the rise in Christmas Day's top temperature since 1950</span></div>
+</div>
+
+<h2><span class="n">01 · Where</span>Height and latitude</h2>
+<p>The odds depend enormously on where you are. Snow never lay on Christmas Day in Bournemouth in 76 years of data, and lay just once in 9 other towns, all on or near the coasts of southern and eastern England, Devon and Cornwall. In London it lay 5 times (6.6%), in Manchester 7 times, in Glasgow 13 times and in Edinburgh 11 times. Every 100 m of height multiplies the odds of lying snow by about 3.4, and every degree further north by about 1.6: Buxton, the highest town in the set at 312 m, had snow lying on 18% of Christmases.</p>
+<p>Aviemore (70%) and Fort William (62%) top the list, but with a warning. The reanalysis works on cells about 9 to 11 km across, and their cells include the slopes of the Cairngorms and the Nevis range. The model is also known to put too much snow on mountains. Their figures describe the hills around the towns as much as the streets.</p>
+<div class="figure"><img src="img/map.jpg" alt="Map of the UK with 116 town dots coloured from pale to deep blue by the share of Christmas Days with snow lying: deepest in the Scottish Highlands, palest on the south coast of England" loading="lazy"><p class="src">Share of Christmas Days 1950 to 2025 with more than 1 cm of snow lying.</p></div>
+
+<h2><span class="n">02 · When</span>A few big years</h2>
+<p>White Christmases come in clusters of a few years when snow covers much of the country. In 2010 snow lay in 96 of the 116 towns, in 1981 in 94 and in 2009 in 80. In 2024 and 2025 it lay in none. Every town had snow falling on at least one Christmas Day, but 8 towns, all in Scotland, have had snow lying on Christmas Day since 2010.</p>
+<div class="figure"><img src="img/strip.jpg" alt="A grid with one row per town and one square per year from 1940 to 2025, mostly pale with vertical stripes of blue in a few years such as 1981, 2009 and 2010 when snow lay almost everywhere" loading="lazy"><p class="src">Every Christmas Day since 1940 in every town, north at the top.</p></div>
+
+<h2><span class="n">03 · Check</span>Does it match the Met Office?</h2>
+<p>The Met Office counts a Christmas as white if a single snowflake is seen falling at one of its stations. A reanalysis cannot see a single flake: it gives the average snow over a grid cell. But it can be checked against the Met Office's record of lying snow. The Met Office lists four Christmases since 1960 when more than 40% of its stations had snow on the ground: 1981, 1995, 2009 and 2010. In this data those four years rank first, second, third and fifth of all 66 Christmases since 1960 by the share of towns with lying snow.</p>
+<div class="figure"><img src="img/valid.jpg" alt="Two scatter charts comparing the Met Office's share of stations with snow on Christmas Day to the share of towns in the reanalysis, for the years the Met Office publishes; the points lie close to a rising line" loading="lazy"><p class="src">Met Office station figures against the reanalysis, where published.</p></div>
+
+<h2><span class="n">04 · Change</span>Rarer, probably</h2>
+<p>From 1950 to 1987, snow lay on 10.4% of town Christmases; from 1988 to 2025, 7.3%. Christmas Days with no lying snow in any town went from 4 of 38 to 14 of 38, and a rank test on the yearly share of towns with snow lying finds a decline unlikely to be chance. But my main model, written down before I looked, cannot tell the overall fall in the odds apart from chance, because 2009 and 2010, two of the three snowiest Christmases since 1950 in this data, are recent. Leave those two years out and the decline becomes clear. Christmas Day's top temperature has risen by about 0.5°C a decade since 1950.</p>
+<div class="figure"><img src="img/annual.jpg" alt="Bar charts of the share of towns with lying and falling snow each Christmas, with tall bars in 1950, 1956, 1968, 1981, 2009 and 2010 and almost nothing since, above a rising line of Christmas Day temperature" loading="lazy"><p class="src">Each Christmas: share of towns with snow lying and falling, and Christmas Day's average top temperature.</p></div>
+<div class="figure"><img src="img/robust.jpg" alt="Forest plot of trend estimates under every planned check: almost all below one, most with intervals crossing one" loading="lazy"><p class="src">Every planned check of the trend.</p></div>
+
+<h2><span class="n">05 · How I did this</span>Reanalysis, one day a year</h2>
+<p><b>Data.</b> Daily snowfall, snow depth and top temperature for 24 to 26 December, 1940 to 2025, at each town from the Open-Meteo Historical Weather API, which serves the ERA5 reanalysis (from 1940) and ERA5-Land (from 1950, the only source of snow depth, so lying snow starts in 1950). From 2017 Open-Meteo may use ECMWF's forecast model analyses for snowfall and temperature; trends ending in 2016 are shown in the checks.</p>
+<p><b>Method.</b> I wrote the definitions, models and checks down before computing any result by town or year. The trend model is a logistic regression with a fixed effect for each town and uncertainty clustered by year, since every town shares the same Christmas weather; a rank test (Mann-Kendall) on the national series is the second planned test.</p>
+<p><b>What this cannot say.</b> Reanalysis is a model guided by observations, not a weather station in your street; it averages over cells about 9 to 11 km across, and it puts too much snow on hills. The 1940s are less well observed. Christmas Day is one day a year, so any trend rests on a few dozen Christmases.</p>
+<details><summary>Sources and licences</summary>
+<ul class="plain">
+<li>Open-Meteo Historical Weather API (Zippenfenig 2023, doi:10.5281/zenodo.7970649), CC BY 4.0, retrieved 2026. Contains modified Copernicus Climate Change Service information: ERA5 (Hersbach et al. 2020, doi:10.1002/qj.3803) and ERA5-Land (Muñoz-Sabater et al. 2021, doi:10.5194/essd-13-4349-2021).</li>
+<li>Met Office, "Will it be a white Christmas?" (press release, 2024) and the Met Office white Christmas page, for the definition and the station record.</li>
+<li>Terrain for the reanalysis-cell check: Mapzen/AWS Terrain Tiles. Boundaries: ONS local authority districts (Open Government Licence v3.0) and Natural Earth (public domain).</li>
+<li>Base map: OpenFreeMap Positron style (OpenStreetMap, ODbL). MapLibre GL JS 4.7.1 (BSD 3-Clause).</li>
+<li>Text, figures and data CC BY 4.0; code MIT.</li>
+</ul></details>
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.24132735">Read the paper</a><a href="https://github.com/Tristan-Hotham/white-christmas">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/white-christmas/">Blog post</a></div>
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) What are the odds of a white Christmas? Snow on Christmas Day in 116 UK towns from reanalysis, 1940 to 2025. Zenodo. <a href="https://doi.org/10.5281/zenodo.24132735">10.5281/zenodo.24132735</a></p>
+<p>Code: <a href="https://github.com/Tristan-Hotham/white-christmas">github.com/Tristan-Hotham/white-christmas</a> (MIT). Text, figures and data CC BY 4.0.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="js/page.js?v=2026a"></script>
+<!-- map-fullscreen v1 -->
+<style id="mfs-style">
+.mfs-btn{position:absolute;top:10px;right:10px;z-index:1001;width:34px;height:34px;border:2px solid rgba(0,0,0,.25);border-radius:4px;background:#fff;color:#222;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.mfs-btn:hover{background:#f2f2f2}
+.mfs-btn svg{width:18px;height:18px}
+.mfs-host.mfs-btn-left .mfs-btn{right:auto;left:54px}
+.mfs-fake{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;z-index:100000!important;border-radius:0!important}
+html.mfs-lock,html.mfs-lock body{overflow:hidden!important}
+:fullscreen.mfs-host{width:100vw!important;height:100vh!important;max-width:none!important;max-height:none!important;margin:0!important;border-radius:0!important}
+</style>
+<script id="mfs-script">
+(function(){
+  var ICON_OPEN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
+  var ICON_CLOSE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>';
+  function poke(){setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);setTimeout(function(){window.dispatchEvent(new Event('resize'));},400);}
+  function realFS(){return document.fullscreenElement||document.webkitFullscreenElement;}
+  function add(el){
+    if(el.__mfs)return; el.__mfs=1;
+    var cs=getComputedStyle(el); if(cs.position==='static')el.style.position='relative';
+    el.classList.add('mfs-host');
+    // avoid clashing with a top-right Leaflet control (e.g. "Map layers")
+    var tr=el.querySelector('.leaflet-top.leaflet-right');
+    if(tr&&tr.children.length){ el.classList.add('mfs-btn-left'); }
+    var b=document.createElement('button'); b.type='button'; b.className='mfs-btn';
+    b.title='Full screen map'; b.setAttribute('aria-label','Full screen map'); b.innerHTML=ICON_OPEN;
+    ['click','dblclick','mousedown','touchstart','wheel'].forEach(function(t){b.addEventListener(t,function(e){e.stopPropagation();},{passive:t!=='click'});});
+    function setIcon(on){b.innerHTML=on?ICON_CLOSE:ICON_OPEN;b.title=on?'Exit full screen':'Full screen map';b.setAttribute('aria-label',b.title);}
+    function exitFake(){el.classList.remove('mfs-fake');document.documentElement.classList.remove('mfs-lock');setIcon(false);poke();}
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      if(el.classList.contains('mfs-fake')){exitFake();return;}
+      if(realFS()){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return;}
+      var req=el.requestFullscreen||el.webkitRequestFullscreen;
+      if(req){ try{ var p=req.call(el); if(p&&p.catch)p.catch(function(){el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke();}); }catch(err){el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke();} }
+      else { el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke(); }
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.classList.contains('mfs-fake'))exitFake();});
+    ['fullscreenchange','webkitfullscreenchange'].forEach(function(t){document.addEventListener(t,function(){setIcon(realFS()===el);poke();});});
+    el.appendChild(b);
+  }
+  function scan(){
+    var els=document.querySelectorAll('[data-fullscreen-map], .leaflet-container, .maplibregl-map, .mapboxgl-map');
+    els.forEach(function(el){
+      if(el.closest('.mfs-host')&&!el.classList.contains('mfs-host'))return;
+      var r=el.getBoundingClientRect(); if(r.width<200||r.height<150)return;
+      add(el);
+    });
+  }
+  function start(){scan(); var n=0; var t=setInterval(function(){scan(); if(++n>20)clearInterval(t);},500);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start); else start();
+})();
+</script>
+<!-- /map-fullscreen -->
+
+<script src="https://maps.tristanhotham.com/assets/site-nav.js" defer></script>
+</body>
+</html>
