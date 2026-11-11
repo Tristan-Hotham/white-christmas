@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite it as below."
+title: "What Are the Odds of a White Christmas? Snow on Christmas Day in 116 UK Towns from Reanalysis, 1940 to 2025"
+type: dataset
+authors:
+  - family-names: Hotham
+    given-names: Tristan
+    orcid: "https://orcid.org/0000-0003-4931-9349"
+    affiliation: "Independent researcher"
+doi: "10.5281/zenodo.24132735"
+url: "https://maps.tristanhotham.com/white-christmas/"
+repository-code: "https://github.com/Tristan-Hotham/white-christmas"
+license: CC-BY-4.0
+keywords:
+  - "white Christmas"
+  - "snow"
+  - "snow cover"
+  - "reanalysis"
+  - "ERA5-Land"
+  - "United Kingdom"
+  - "climate variability"
+  - "Mann-Kendall"
